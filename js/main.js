@@ -42,7 +42,7 @@ window.onload = function(){
 	
 	
 	// tab 
-	function tab(){}
+	//function tab(){}
 	
 	var oUl1 = document.getElementById('ul1');
 	var aLiUl1 = oUl1.getElementsByTagName('li');

@@ -26,7 +26,7 @@ img{ border:none; vertical-align:top;}
 
 #logo { width:960px; height: 113px; margin:0 auto; position:relative;}
 #qq-logo { width:181px; height:54px; position:absolute; left:0; top:31px; }
-#main-title { width:700px; height:40px; position:absolute; left:238px; }
+#main-title { width:700px; height:100%; position:relative; left:238px; }
 #main-title ul { width:397px; height:75px; position:absolute; left:0; top:0; margin-right:-32px;}
 #main-title ul li { float:left;}
 
@@ -44,6 +44,9 @@ img{ border:none; vertical-align:top;}
 #main-title ol li a{ padding:0 18px; font-size:14px; font-family:'宋体'; color:#333;}
 #main-title ol li:nth-child(0) a{ color:red;}
 #main-title ol li a:hover { color:green; }
+#main-title ol:nth-of-type(1) li:nth-of-type(1) a { color: green; font-weight: 900; }
+#main-title ol:nth-of-type(2) { left: 100px;}
+#main-title ol:nth-of-type(3) { left: 40px;}
 
 #search { width:228px; height:40px; background:url(../images/frame_bg.png) no-repeat  0 -161px; position:absolute; right:0; top:38px; }
 #search #search-music { width:190px; height:28px; border:none; padding:0; outline:none; position:absolute; left:8px; top:5px; text-indent:1em; color:#d4d4d4;}
@@ -60,14 +63,16 @@ img{ border:none; vertical-align:top;}
 #cont #main #tab{ width:700px; height:280px; position:relative; otverflow:hidden;}
 #cont #main #tab #ul1{ position:absolute; left:0; top:0;}
 #cont #main #tab #ul1 li{ width:700px; height:280px; position:absolute; display:none;}
+#cont #main #tab #ul1 li img {width: 100%; height: 100%;}
 
 #cont #main #tab #ol1{ z-index:9; position:absolute; left:264px; bottom:10px; width:180px; height:10px; margin-right:-8px;}
 #cont #main #tab #ol1 li{ width:10px; height:10px; background:rgba(255,255,255,0.5); margin-right:8px; border-radius:50%; float:left;cursor:pointer; }
 #cont #main #tab #ol1 li.active{ background:rgba(255,255,255,1);}
 
-#cont #main #tab #tabBtn{ width:700px; position:absolute; left:0; top:105px; }
-#cont #main #tab #tabBtn a{ display:inline-block; width:35px; height:70px; line-height:70px; text-align:center; background:rgba(0,0,0,0.2); color:#fff;}
-#cont #main #tab #tabBtn a:nth-child(2){ position:absolute; right:0;}
+#cont #main #tab a.prevBtn, a.nextBtn { display:inline-block; width:35px; height:70px; overflow: hidden; background: url(../images/mod_focus_show.png) no-repeat; opacity: 0.3; filter: alpha(opacity=30); transition: .2s; position: absolute; z-index: 2;}
+#cont #main #tab a.prevBtn { left: 0; top: 105px; background-position: 0 0;}
+#cont #main #tab a.nextBtn { position: absolute; right:0; top: 105px; background-position: right top;}
+#cont #main #tab a[class*=Btn]:hover { opacity: 0.6; filter: alpha(opacity=60);}
 
 /* 在线首发 */
 #album{ width:700px; height:318px; margin-top:40px;}
@@ -81,8 +86,12 @@ img{ border:none; vertical-align:top;}
 #album #album_title #title_tab{ width:64px; height:32px; position:absolute; right:0; top:0; }
 #album #album_title #title_tab .prev{ display:block; width:32px; height:32px; background:url(../images/icon_sprite.png) no-repeat -32px -96px;}
 #album #album_title #title_tab .prev:hover{ background:url(../images/icon_sprite.png) no-repeat -64px -96px;}/* 鼠标移入*/
+#album #album_title #title_tab .now { background: url(../images/icon_sprite.png) no-repeat 0px -96px;}
+#album #album_title #title_tab .now:hover { background-position: -64px -96px; }
+#album #album_title #title_tab .disable_prev,#album #album_title #title_tab .disable_prev:hover { background: url(../images/icon_sprite.png) no-repeat -32px -96px;}
 #album #album_title #title_tab .next{ display:block; width:32px; height:32px; background:url(../images/icon_sprite.png) no-repeat 0 -128px;}
 #album #album_title #title_tab .next:hover{ background:url(../images/icon_sprite.png) no-repeat -64px -128px;}/* 鼠标移入*/
+#album #album_title #title_tab .disable_next, #album #album_title #title_tab .disable_next:hover { background: url(../images/icon_sprite.png) no-repeat; background-position: -32px -128px;}
 
 /* 在线首发_内容 */
 #album #album_list{ width:700px; height:270px; margin-top:18px;}		
@@ -109,7 +118,7 @@ img{ border:none; vertical-align:top;}
 #mv #mv_list ul{ width:720px; height:368px; margin-right:-20px;}
 #mv #mv_list ul li{ width:160px; height:184px; margin-right:20px; float:left; position:relative;}
 #mv #mv_list ul li a.image img{ display:block; width:160px; height:90px;}
-#mv #mv_list ul li p.songname{ width:160px; height:24px; margin-top:2px; line-height:24px; font-size:12px;}
+#mv #mv_list ul li p.songname{ width:160px; height:24px; margin-top:2px; line-height:24px; font-size:12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
 #mv #mv_list ul li p.songname a:nth-child(1){ color:#0c8f61;}
 #mv #mv_list ul li p.songname a:nth-child(2){ color:#515151;}
 #mv #mv_list ul li p.illu{ width:160px; height:24px; line-height:24px; font-size:12px; color:#8b8b8b; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}/*超出文字省略显示*/
@@ -225,7 +234,7 @@ img{ border:none; vertical-align:top;}
 #peakrank ul li[class*='num1'] img{ position:absolute; display:inline-block; width:50px; height:50px; left:42px; top:0;}
 #peakrank ul li[class*='num1'] div{ position:absolute; right:0; top:0; width:117px; height:50px;}
 #peakrank ul li[class*='num1'] div h2{ width:117px; height:24px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-#peakrank ul li[class*='num1'] div h2 a{ font-family:'Microsoft yahei'; font-size:22px; line-height:24px; color:#ff5400;}
+#peakrank ul li[class*='num1'] div h2 a{ font-family:'Microsoft yahei'; font-size:22px; line-height:24px; color:#ff5400; position: relative; top: -5px;}
 #peakrank ul li[class*='num1'] div h2 a:hover{ color:#05b600;}
 #peakrank ul li[class*='num1'] div a.firstname{ font-size:12px; position:absolute; left:0; bottom:0; display:inline-block; line-height:17px; color:#515151;}
 
